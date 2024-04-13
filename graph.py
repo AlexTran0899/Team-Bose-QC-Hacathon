@@ -22,8 +22,6 @@ def moveFigureTo(fig, x, y):
 		# You can also use window.setGeometry
 		fig.canvas.manager.window.move(x, y)
 
-
-
 global plateID
 plateID = 0
 
