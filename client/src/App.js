@@ -1,28 +1,46 @@
-import { Axios } from 'axios';
 import React, { useState } from 'react';
 
-
 const App = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [responseImage, setResponseImage] = useState(null);
+  const [uploadedImage, setUploadedImage] = useState(null);
 
-  const handleImageUpload = (event) => {
+  const handleImageUpload = async (event) => {
     const file = event.target.files[0];
-    setSelectedImage(URL.createObjectURL(file));
-    // TODO: Send the image to the API
-    Axios.post('127.0.0.1:9000/image', selectedImage)
-    .then((res) => setResponseImage(res))
-    .catch(err => console.log(err))
+    const formData = new FormData();
+    formData.append('image', file);
+
+    try {
+      // Send the image to the backend
+      const response = await fetch('http://127.0.0.1:9000/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        // Receive the image from the backend
+        const blob = await response.blob();
+        const imageUrl = URL.createObjectURL(blob);
+        setUploadedImage(imageUrl);
+      } else {
+        console.error('Image upload failed.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (
     <div>
+      <h1>Image Upload</h1>
       <input type="file" accept="image/*" onChange={handleImageUpload} />
-      {selectedImage && <img src={selectedImage} alt="Uploaded" />}
-      {responseImage && <img src={responseImage} alt="response image"/>}
+
+      {uploadedImage && (
+        <div>
+          <h2>Uploaded Image:</h2>
+          <img src={uploadedImage} alt="Uploaded" />
+        </div>
+      )}
     </div>
   );
 };
-
 
 export default App;
