@@ -5,8 +5,6 @@ client = OpenAI(
     api_key = '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'
 )
 
-
-
 # Function to encode the image
 def encode_image(image_path):
   with open(image_path, "rb") as image_file:
@@ -17,7 +15,6 @@ image_path = "./banana.jpg"
 
 # Getting the base64 string
 base64_image = encode_image(image_path)
-
 
 response = client.chat.completions.create(
   model="gpt-4-turbo-2024-04-09",
