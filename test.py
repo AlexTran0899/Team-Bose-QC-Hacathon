@@ -19,7 +19,7 @@ def upload():
     image_path = os.path.join('/tmp', image.filename)
     image.save(image_path)
     # Generate the SVG file path
-    svg_path = os.path.join('./', 'plate1.svg')
+    svg_path = os.path.join('./', 'plate.svg')
 
     # Send the SVG file
     response = send_file(svg_path, mimetype='image/svg+xml')
