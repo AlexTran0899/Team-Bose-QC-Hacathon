@@ -18,6 +18,109 @@
   font-size: large;
 }
 
+<<<<<<< Updated upstream
+=======
+.header {
+  background-color: #007BFF; /* Bootstrap primary blue */
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.header a {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.container {
+  display: flex;
+  align-items: end;
+  height: 92vh; /* Adjust the height based on your design preference */
+}
+
+.left-panel, .right-panel {
+  width: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  height: 100%; /* Take full height of its container */
+}
+
+.left-panel img {
+  width: 100%; /* Ensures the image takes the full width of the left panel */
+  height: auto; /* Maintains the aspect ratio of the image */
+  max-height: 80vh;
+  padding: 20px; /* Optional: limits the image height to not exceed the viewport height */
+}
+
+
+.right-panel {
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensure it fills the container vertically */
+}
+
+.top-section {
+  flex-grow: 2; /* Takes 2 parts of the height */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center content vertically and horizontally */
+  text-align: center;
+}
+
+.bottom-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* Ensure the section fills its container */
+}
+
+.bottom-section h1 {
+  font-size: 16px; /* Adjusted to make the font size smaller */
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+table {
+  width: 35%;
+  border-collapse: collapse;
+  table-layout: fixed; /* Ensures that all columns are of the same width */
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+  width: calc(100% / 3);  /* Divide table width by three columns */
+  height: 20px; /* Set the height of each cell */
+  overflow: hidden; /* Keeps the content contained within the cell */
+  white-space: nowrap; /* Prevents text from wrapping */
+  text-overflow: ellipsis; /* Adds an ellipsis if the text is too long */
+}
+
+
+/* Optional: Add some padding or margin between panels if needed */
+.left-panel {
+  padding-right: 10px; /* Adds some space between the two panels */
+}
+
+.right-panel {
+  padding-left: 10px; /* Adds some space between the two panels */
+}
+
+
+
+>>>>>>> Stashed changes
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
